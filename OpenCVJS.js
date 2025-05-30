@@ -86,6 +86,11 @@ async function setupCamera(deviceId) {
 
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
+        if (!firstFrameSent) {
+            unityInstance.SendMessage("CameraManager", "OnCameraReady");
+            firstFrameSent = true;
+        }
+    
 }
 
 function waitForOpenCV() {
