@@ -49,7 +49,6 @@ async function StartFootDetection(deviceId) {
 
     await waitForOpenCV();
     await setupCamera(deviceId);
-    startFrameLoop(); // Start sending frames for UI only
     // DO NOT start detection yet — wait for template capture
 }
 
@@ -90,7 +89,8 @@ async function setupCamera(deviceId) {
             unityInstance.SendMessage("CameraManager", "OnCameraReady");
             firstFrameSent = true;
         }
-    
+    startFrameLoop(); // Start sending frames for UI only
+
 }
 
 function waitForOpenCV() {
