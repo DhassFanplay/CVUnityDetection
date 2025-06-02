@@ -100,9 +100,7 @@ function waitForOpenCV() {
         const check = () => (cv && cv.Mat ? resolve() : setTimeout(check, 100));
         check();
     });
-    if (unityInstance) {
-        unityInstance.SendMessage("CameraManager", "AILoaded");
-    }
+        console.error("AI Loaded");
 }
 
 function CaptureFootTemplateFromUnity() {
