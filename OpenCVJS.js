@@ -50,6 +50,7 @@ async function StartFootDetection(deviceId) {
     cancelLoops();
 
     await waitForOpenCV();
+        console.error("AI Loaded");
     await setupCamera(deviceId);
     // DO NOT start detection yet — wait for template capture
 }
@@ -100,7 +101,6 @@ function waitForOpenCV() {
         const check = () => (cv && cv.Mat ? resolve() : setTimeout(check, 100));
         check();
     });
-        console.error("AI Loaded");
 }
 
 function CaptureFootTemplateFromUnity() {
