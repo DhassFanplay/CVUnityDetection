@@ -24,6 +24,8 @@ function RegisterUnityInstance(instance) {
 window.RegisterUnityInstance = RegisterUnityInstance;
 window.StartFootDetection = StartFootDetection;
 window.CaptureFootTemplateFromUnity = CaptureFootTemplateFromUnity;
+window.listCameras = listCameras;
+window.setupCamera = setupCamera;
 
 async function listCameras() {
     try {
@@ -98,6 +100,9 @@ function waitForOpenCV() {
         const check = () => (cv && cv.Mat ? resolve() : setTimeout(check, 100));
         check();
     });
+    if (unityInstance) {
+        unityInstance.SendMessage("CameraManager", "AILoaded");
+    }
 }
 
 function CaptureFootTemplateFromUnity() {
