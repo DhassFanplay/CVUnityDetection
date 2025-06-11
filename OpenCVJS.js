@@ -14,7 +14,7 @@ let resizedTemplate = null;
 let matchBuffer = null;
 const scale = 0.5;
 const templateSize = 100;
-const minMatchScore = 0.5;
+const minMatchScore = 0.8;
 
 function RegisterUnityInstance(instance) {
     unityInstance = instance;
@@ -52,7 +52,7 @@ async function StartFootDetection(deviceId) {
     await waitForOpenCV();
         console.error("AI Loaded");
     await setupCamera(deviceId);
-    // DO NOT start detection yet — wait for template capture
+    // DO NOT start detection yet â€” wait for template capture
 }
 
 async function setupCamera(deviceId) {
